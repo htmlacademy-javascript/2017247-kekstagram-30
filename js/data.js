@@ -1,4 +1,4 @@
-import { getRandomInteger, createRandomFromRangeGenerator, getRandomArrayElement } from './util.js';
+import { getRandomInteger, createRandomFromRangeGenerator, getRandomArrayElement } from './utils.js';
 
 const MAX_NUMBER_OF_PHOTOS = 25;
 const MAX_NUMBER_OF_COMMENTS = 30;
@@ -54,10 +54,11 @@ const NAMES = [
 ];
 
 const createCommentLeftOtherUsers = function () {
+  const getRandomAvatarURL = createRandomFromRangeGenerator(1, 6);
 
   return {
     id: getRandomInteger(1, 300),
-    avatar: `img/avatar-${createRandomFromRangeGenerator(1, 6)()}.svg`,
+    avatar: `img/avatar-${getRandomAvatarURL()}.svg`,
     message: getRandomArrayElement(COMMENTS_TEXT),
     name: getRandomArrayElement(NAMES)
   };
@@ -74,7 +75,7 @@ const createDescriptionPhotoPublishedUser = function () {
     const photoDescription = {
       id: i + 1,
       url: `photos / ${i + 1}.jpg`,
-      description: PHOTO_DESCRIPTIONS[i],
+      description: getRandomArrayElement(PHOTO_DESCRIPTIONS),
       likes: createRandomFromRangeGenerator(15, 200)(),
       comments: createListRandomCommentsLeftOtherUsers()
     };
