@@ -74,7 +74,7 @@ const createDescriptionPhotoPublishedUser = function () {
   for (let i = 0; i < MAX_NUMBER_OF_PHOTOS; i++) {
     const photoDescription = {
       id: i + 1,
-      url: `photos / ${i + 1}.jpg`,
+      url: `photos/${i + 1}.jpg`,
       description: getRandomArrayElement(PHOTO_DESCRIPTIONS),
       likes: createRandomFromRangeGenerator(15, 200)(),
       comments: createListRandomCommentsLeftOtherUsers()
