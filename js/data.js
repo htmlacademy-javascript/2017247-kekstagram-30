@@ -53,6 +53,7 @@ const NAMES = [
   'Маришка',
 ];
 
+// Функция для создания комментария от других пользователей
 const createCommentLeftOtherUsers = function () {
   const getRandomAvatarURL = createRandomFromRangeGenerator(1, 6);
 
@@ -64,17 +65,21 @@ const createCommentLeftOtherUsers = function () {
   };
 };
 
+// Функция для создания списка комментариев от других пользователей
 const createListRandomCommentsLeftOtherUsers = function () {
-  return Array.from({ length: createRandomFromRangeGenerator(0, MAX_NUMBER_OF_COMMENTS)() }, createCommentLeftOtherUsers);
+  const getRandomFromRangeComments = createRandomFromRangeGenerator(0, MAX_NUMBER_OF_COMMENTS);
+
+  return Array.from({ length: getRandomFromRangeComments() }, createCommentLeftOtherUsers);
 };
 
+// Функция для создания описания фотографий, опубликованных пользователями
 const createDescriptionPhotoPublishedUser = function () {
   const photoDescriptions = [];
 
   for (let i = 0; i < MAX_NUMBER_OF_PHOTOS; i++) {
     const photoDescription = {
       id: i + 1,
-      url: `photos / ${i + 1}.jpg`,
+      url: `photos/${i + 1}.jpg`,
       description: getRandomArrayElement(PHOTO_DESCRIPTIONS),
       likes: createRandomFromRangeGenerator(15, 200)(),
       comments: createListRandomCommentsLeftOtherUsers()

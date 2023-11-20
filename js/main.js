@@ -1,3 +1,3 @@
-import { createDescriptionPhotoPublishedUser } from './data.js';
+import { drawThumbnails } from './draws-thumbnails.js';
 
-createDescriptionPhotoPublishedUser();
+drawThumbnails();
