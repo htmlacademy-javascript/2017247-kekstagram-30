@@ -9,16 +9,18 @@ const publishedUserPhotos = createDescriptionPhotoPublishedUser();
 const drawThumbnails = function () {
   const photoFragment = document.createDocumentFragment();
 
-  publishedUserPhotos.forEach(({ url, description, likes, comments }) => {
+  publishedUserPhotos.forEach(({ url, description, likes, comments, id }) => {
     const photo = photoTemplate.cloneNode(true);
     photo.querySelector('.picture__img').src = url;
     photo.querySelector('.picture__img').alt = description;
     photo.querySelector('.picture__comments').textContent = comments.length;
     photo.querySelector('.picture__likes').textContent = likes;
+    photo.dataset.photoId = id;
+
     photoFragment.appendChild(photo);
   });
 
   containerForPhotos.appendChild(photoFragment);
 };
 
-export { drawThumbnails };
+export { containerForPhotos, drawThumbnails, publishedUserPhotos };

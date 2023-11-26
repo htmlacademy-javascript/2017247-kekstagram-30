@@ -29,4 +29,7 @@ const getRandomArrayElement = function (elements) {
   return elements[getRandomInteger(0, elements.length - 1)];
 };
 
-export { getRandomInteger, createRandomFromRangeGenerator, getRandomArrayElement };
+// Функция для проверки, нажата ли клавиша "Escape"
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export { getRandomInteger, createRandomFromRangeGenerator, getRandomArrayElement, isEscapeKey };

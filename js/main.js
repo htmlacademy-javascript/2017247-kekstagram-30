@@ -1,3 +1,4 @@
-import { drawThumbnails } from './draws-thumbnails.js';
+import { publishedUserPhotos } from './draws-thumbnails.js';
+import { renderGallery } from './gallery.js';
 
-drawThumbnails();
+renderGallery(publishedUserPhotos);
